@@ -1,6 +1,6 @@
 from gameState import *
 from gameRules import *
-from player import Player
+from gameElements.player import Player
 
 class GameEngine:
 
@@ -23,9 +23,9 @@ class GameEngine:
         self.rules.evaluate_round(self.state)
 
     def play_turn(self):
-        print(f"\tPlayer to play: {self.state.current_player}")
+        print(f"\tPlayer to play: {self.state.turn_order.current_player}")
         self.rules.start_turn(self.state)
-        player=self.state.current_player
+        player=self.state.turn_order.current_player
 
         while not self.rules.is_turn_over(self.state):
             valid_actions=self.rules.valid_actions(player, self.state)

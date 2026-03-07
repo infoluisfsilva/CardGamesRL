@@ -1,23 +1,16 @@
-from typing import List
-from SuecaRules import *
+from BurroRules import *
 from gameState import *
 from gameEngine import *
-from gameFactory import GameFactory
-from player import List, Player
+from gameStructure.gameFactory import GameFactory
 
-class SuecaGameFactory(GameFactory):
-
-    #overrides method because for Sueca players are divided into teams
-    def create_players(self, n_players) -> List[Player]:
-        return super().create_players(n_players)
-    
+class BurroGameFactory(GameFactory):
 
     def create_game(self, n_players: int, target:int)->GameEngine:
 
     #   =================Validate initial state==========================
         #validate number of players constraint
-        if n_players != 4:
-            raise ValueError("Sueca requires 4 players")
+        if n_players >=3:
+            raise ValueError("Burro requires at least 3 players")
         
         #validate that target is int>0
         if isinstance(target, int) and target > 0:
@@ -25,19 +18,15 @@ class SuecaGameFactory(GameFactory):
         
     #   ==================Create game if everything is valid==============
         #connection to prolog db
-        self.database.consult('sueca.pl')
-
-        #connect to interface between rules (prolog) and engine
-        rules = SuecaRules(self.database)
+        self.database.consult('burro.pl')
         
         #create players
         players=self.create_players(n_players)
-
-        #create deck
-        deck=
        
         #set state 
         state = GameState(players, target)
 
+        #connect to interface between rules (prolog) and engine
+        rules = BurroRules(self.database)
 
         return GameEngine(rules, state)

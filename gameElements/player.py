@@ -1,27 +1,15 @@
 from typing import List, Any, Dict
+from gameElements.agent import Agent
 
 class Player:
-    def __init__(self, id:int) -> None:
+    def __init__(self, id:int, agent:Agent) -> None:
         self._id=id
-        self._team=None
-        self._hand=None
+        self.agent=agent
         self._beliefs=None
 
     @property
     def id(self):
         return self._id
-    
-    @property
-    def team(self):
-        return self._team
-    
-    @property
-    def hand(self):
-        return self._hand
-    
-    @hand.setter
-    def hand(self, new_hand):
-        self._hand=new_hand
     
     @property
     def beliefs(self):
@@ -36,7 +24,7 @@ class Player:
         pass
 
     def __str__(self):
-        return f'Player[id:{self.id}, team:{self.team}, hand:{self.hand}, beliefs: {self.beliefs}]'
+        return f'Player[id:{self.id}, beliefs: {self.beliefs}]'
     
     def __repr__(self):
         return self.__str__()

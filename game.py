@@ -1,13 +1,14 @@
-from gameEngine import *
-from suecaGameFactory import SuecaGameFactory
-from burroGameFactory import BurroGameFactory
+from gameStructure.gameEngine import *
+from gameImplementation.gameFactories.suecaGameFactory import SuecaGameFactory
+from gameImplementation.gameFactories.burroGameFactory import BurroGameFactory
+from typing import List
 
-def select_game(game: str, n_players: int, target:int):
+def select_game(game: str, agents_types: List[str], target:int):
 
     if game == 'sueca':
-        engine=SuecaGameFactory().create_game(n_players, target)
-    elif game == 'burro':
-        engine=BurroGameFactory().create_game(n_players, target)
+        engine=SuecaGameFactory().create_game(agents_types, target)
+    #elif game == 'burro':
+    #    engine=BurroGameFactory().create_game(agents_types, target)
     else:
         raise ValueError("Unknown game")
 
