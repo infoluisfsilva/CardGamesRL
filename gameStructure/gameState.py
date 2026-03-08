@@ -1,4 +1,4 @@
-from gameElements.tunrOrder import TurnOrder
+from gameElements.turnOrder import TurnOrder
 
 class GameState:
 

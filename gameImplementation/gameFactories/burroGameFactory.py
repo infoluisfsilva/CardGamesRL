@@ -1,6 +1,6 @@
-from BurroRules import *
-from gameState import *
-from gameEngine import *
+from gameImplementation.gameRules.Interfaces.BurroRules import *
+from gameStructure.gameState import *
+from gameStructure.gameEngine import *
 from gameStructure.gameFactory import GameFactory
 
 class BurroGameFactory(GameFactory):

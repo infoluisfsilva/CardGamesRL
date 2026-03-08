@@ -7,12 +7,3 @@ class Card:
 
     def __str__(self):
         return f"{self.rank} of {self.suit}"
-    
-
-from enum import Enum
-
-class Suit(Enum):
-    HEARTS = "hearts"
-    SPADES = "spades"
-    CLUBS = "clubs"
-    DIAMONDS = "diamonds"

@@ -1,5 +1,5 @@
-from gameState import *
-from gameRules import *
+from gameStructure.gameState import *
+from gameStructure.gameRules import *
 from gameElements.player import Player
 
 class GameEngine:
